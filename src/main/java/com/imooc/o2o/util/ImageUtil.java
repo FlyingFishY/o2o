@@ -2,6 +2,7 @@ package com.imooc.o2o.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -69,16 +70,16 @@ public class ImageUtil {
 //		return relativeAddr;
 //	}
 	
-	public static String generateThumbnail(File thumbnail,String targetAddr) {
+	public static String generateThumbnail(InputStream thumbnailInputStream,String fileName, String targetAddr) {
 		String realFileName = getRandomFileName();
-		String extension = getFileExtension(thumbnail);
+		String extension = getFileExtension(fileName);
 		makeDirPath(targetAddr);
 		String relativeAddr = targetAddr + realFileName + extension;
 		logger.debug("current relativeAddr is:" + relativeAddr);
 		File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
 		logger.debug("current complete addr is:" + PathUtil.getImgBasePath() + relativeAddr);
 		try {
-			Thumbnails.of(thumbnail).size(200,200)
+			Thumbnails.of(thumbnailInputStream).size(200,200)
 					.watermark(Positions.BOTTOM_RIGHT,ImageIO.read(new File(basePath + "/watermark.png")),0.25f)
 					.outputQuality(0.8f).toFile(dest);;
 		}catch(IOException e){
@@ -113,9 +114,8 @@ public class ImageUtil {
 //		return originalFileName.substring(originalFileName.lastIndexOf("."));
 //	}
 	
-	private static String getFileExtension(File cFile) {
-		String originalFileName = cFile.getName();
-		return originalFileName.substring(originalFileName.lastIndexOf("."));
+	private static String getFileExtension(String fileName) {
+		return fileName.substring(fileName.lastIndexOf("."));
 	}
 
 	/**
