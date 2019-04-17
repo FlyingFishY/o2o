@@ -1,0 +1,10 @@
+2019-04-08 10:00:39.945 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is:\upload\item\shop6\20190408100064959.png
+2019-04-08 10:00:39.956 [main] DEBUG com.imooc.o2o.util.ImageUtil - current complete addr is:G:\自学资料\项目图目录\\upload\item\shop6\20190408100064959.png
+2019-04-08 10:38:57.775 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop7\20190408103831319.png
+2019-04-08 10:38:57.776 [main] DEBUG com.imooc.o2o.util.ImageUtil - current complete addr is:G:\自学资料\项目图目录\upload\item\shop7\20190408103831319.png
+2019-04-08 10:43:45.977 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop8\20190408104364019.png
+2019-04-08 10:43:45.979 [main] DEBUG com.imooc.o2o.util.ImageUtil - current complete addr is:G:\自学资料\项目图目录\upload\item\shop8\20190408104364019.png
+2019-04-08 10:45:13.490 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop9\20190408104548021.png
+2019-04-08 10:45:13.492 [main] DEBUG com.imooc.o2o.util.ImageUtil - current complete addr is:G:\自学资料\项目图目录\upload\item\shop9\20190408104548021.png
+2019-04-08 11:26:07.408 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop13\20190408112656353.png
+2019-04-08 11:26:07.411 [main] DEBUG com.imooc.o2o.util.ImageUtil - current complete addr is:G:\自学资料\项目图目录\upload\item\shop13\20190408112656353.png
