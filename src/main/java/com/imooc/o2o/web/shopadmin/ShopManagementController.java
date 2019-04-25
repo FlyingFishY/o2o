@@ -31,9 +31,11 @@ import com.imooc.o2o.exceptions.ShopOperationException;
 import com.imooc.o2o.service.AreaService;
 import com.imooc.o2o.service.ShopCategoryService;
 import com.imooc.o2o.service.ShopService;
+import com.imooc.o2o.util.CodeUtil;
 import com.imooc.o2o.util.HttpServletRequestUtil;
 import com.imooc.o2o.util.ImageUtil;
 import com.imooc.o2o.util.PathUtil;
+import com.sun.xml.internal.ws.resources.ModelerMessages;
 
 @Controller
 @RequestMapping("/shopadmin")
@@ -72,6 +74,12 @@ public class ShopManagementController {
 	@ResponseBody
 	private Map<String,Object> registerShop(HttpServletRequest request){
 		Map<String,Object> modelMap = new HashMap<String,Object>();
+		//检查验证码
+		if(!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "输入了错误的验证码");
+			return modelMap;
+		}
 		//1.接收并转化相应的参数，包括店铺信息以及图片信息
 		String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
 		ObjectMapper mapper = new ObjectMapper();

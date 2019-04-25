@@ -25,13 +25,13 @@
 		<property name="suffix" value=".html"></property>
 	</bean>
 	<!-- 文件上传解析器 -->
-	<!-- <bean id="multipartResolver"
+	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="utf-8"></property>
-		<property name="maxUploadSize" value="10485760000"></property>最大上传文件大小
-		<property name="maxInMemorySize" value="10960"></property>
+		<property name="maxUploadSize" value="20971520"></property><!-- 最大上传文件大小 -->
+		<property name="maxInMemorySize" value="20971520"></property><!-- 最大内存 -->
 	</bean>
-	在spring-mvc.xml文件中加入这段配置后，spring返回给页面的都是utf-8编码了
+	<!-- 在spring-mvc.xml文件中加入这段配置后，spring返回给页面的都是utf-8编码了
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

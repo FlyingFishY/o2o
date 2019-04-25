@@ -5,8 +5,20 @@
 <mapper namespace="com.imooc.o2o.dao.ShopCategoryDao">
 	<select id="queryShopCategory"
 		resultType="com.imooc.o2o.entity.ShopCategory">
-		select * from tb_shop_category
+		select
+		shop_category_id,
+		shop_category_name,
+		shop_category_desc,
+		shop_category_img,
+		priority,
+		create_time,
+		last_edit_time,
+		parent_id
+		from tb_shop_category
 		<where>
+			<if test="shopCategoryCondition != null">
+				and parent_id is not null
+			</if>
 			<if test="shopCategoryCondition.parent != null">
 				and parent_id =
 				#{shopCategoryCondition.parent.shopCategoryId}

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>SUI Mobile Demo</title>
+<title>商铺信息</title>
 <meta name="description"
 	content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
 <meta name="author" content="阿里巴巴国际UED前端">
@@ -116,7 +116,7 @@
 						<li>
 							<div class="item-content">
 								<div class="item-inner">
-									<div class="item-title label">详细地址</div>
+									<div class="item-title label">缩略图</div>
 									<div class="item-input">
 										<input type="file" id="shop-img">
 									</div>
@@ -135,6 +135,18 @@
 							</div>
 						</li>
 						<!-- 验证码 kaptcha-->
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title label">验证码</div>
+									<input type="text" id="j_captcha" placeholder="验证码">
+									<div class="item-input">
+										<img id="captcha_img" alt="点击更换" title="点击更换"
+											onclick="changeVerifyCode(this)" src="../Kaptcha"></img>
+									</div>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
 				<div class="content-block">
@@ -143,7 +155,8 @@
 							<a href="#" class="button button-big button-fill button-danger">返回</a>
 						</div>
 						<div class="col-50">
-							<a href="#" class="button button-big button-fill button-success" id="submint">提交</a>
+							<a href="#" class="button button-big button-fill button-success"
+								id="submit">提交</a>
 						</div>
 					</div>
 				</div>
@@ -159,5 +172,7 @@
 		src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
 	<script type='text/javascript'
 		src='../resources/js/shop/shopoperation.js' charset='utf-8'></script>
+	<script type='text/javascript'
+		src='../resources/js/common/common.js' charset='utf-8'></script>
 </body>
 </html>
