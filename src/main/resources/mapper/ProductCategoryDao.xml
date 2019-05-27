@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.o2o.dao.ProductCategoryDao">
+	<resultMap type="com.imooc.o2o.entity.ProductCategory" id="productCategoryMap">
+		<id column="product_category_id" property="productCategoryId"/>
+		<result column="product_category_name" property="productCategoryName"/>
+		<result column="priority" property="priority"/>
+		<result column="create_time" property="createTime"/>
+		
+		<association property="shop" column="shop_id"
+			javaType="com.imooc.o2o.entity.Shop">
+			<id column="shop_id" property="shopId"/>
+			<result column="shop_name" property="shopName"/>	
+		</association>
+	</resultMap>
+
+	<select id="queryProductCategory" resultMap="productCategoryMap">
+		select
+		pc.product_category_id,
+		pc.product_category_name,
+		pc.priority,
+		pc.create_time,
+		s.shop_id,
+		s.shop_name
+		from 
+		tb_product_category pc,
+		tb_shop s
+		<where>
+			<if test="productCategoryCondition.shop != null and productCategoryCondition.shop.shopId != null">
+				and pc.shop_id =
+				#{productCategoryCondition.shop.shopId}
+			</if>
+			and
+			pc.shop_id=s.shop_id
+		</where>
+		order by pc.priority desc
+		limit #{rowIndex},#{pageSize}
+	</select>
+</mapper>

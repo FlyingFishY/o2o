@@ -29,6 +29,7 @@ import com.imooc.o2o.entity.ShopCategory;
 import com.imooc.o2o.enums.ShopStateEnum;
 import com.imooc.o2o.exceptions.ShopOperationException;
 import com.imooc.o2o.service.AreaService;
+import com.imooc.o2o.service.ProductCategoryService;
 import com.imooc.o2o.service.ShopCategoryService;
 import com.imooc.o2o.service.ShopService;
 import com.imooc.o2o.util.CodeUtil;
@@ -46,6 +47,35 @@ public class ShopManagementController {
 	private ShopCategoryService shopCategoryService;
 	@Autowired
 	private AreaService areaService;
+	@Autowired
+	private ProductCategoryService productCategoryService;
+	
+//	@RequestMapping(value="/getproductcategorylist",method=RequestMethod.GET)
+//	@ResponseBody
+//	private Map<String,Object> getProductCategoryList(HttpServletRequest request){
+//		Map<String, Object> modelMap = new HashMap<String, Object>();
+//		
+//		PersonInfo user = new PersonInfo();
+//		user.setUserId(1L);
+//		user.setName("杨浩");
+//		request.getSession().setAttribute("user", user);
+//		user = (PersonInfo) request.getSession().getAttribute("user");
+//		try {
+//			Shop shopCondition = new Shop();
+//			shopCondition.setOwner(user);
+//			int pageIndex = 0;
+//			int pageSize = 100;
+//			ShopExecution se = shopService.getShopList(shopCondition, pageIndex, pageSize);
+//			modelMap.put("shopList", se.getShopList());
+//			modelMap.put("user", user);
+//			modelMap.put("success", true);
+//		}catch(Exception e){
+//			modelMap.put("success", false);
+//			modelMap.put("errMsg", e.getMessage());
+//		}	
+//		
+//		return modelMap;
+//	}
 	
 	/**
 	 * 管理session相关的操作
