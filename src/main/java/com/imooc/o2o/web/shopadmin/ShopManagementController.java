@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
+import com.imooc.o2o.entity.ProductCategory;
 import com.imooc.o2o.entity.Shop;
 import com.imooc.o2o.entity.ShopCategory;
 import com.imooc.o2o.enums.ShopStateEnum;
@@ -50,32 +51,49 @@ public class ShopManagementController {
 	@Autowired
 	private ProductCategoryService productCategoryService;
 	
-//	@RequestMapping(value="/getproductcategorylist",method=RequestMethod.GET)
-//	@ResponseBody
-//	private Map<String,Object> getProductCategoryList(HttpServletRequest request){
-//		Map<String, Object> modelMap = new HashMap<String, Object>();
-//		
+	/**
+	 * 删除店铺的商品类别
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/deleteproductcategory",method=RequestMethod.DELETE)
+	@ResponseBody
+	private Map<String,Object> deleteProductCategory(HttpServletRequest request){
+		Map<String, Object> modelMap = new HashMap<String, Object>();		
+		return modelMap;
+	}
+	
+	/**
+	 * 根据商店信息，返回商店商品类别列表
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/getproductcategorylist",method=RequestMethod.GET)
+	@ResponseBody
+	private Map<String,Object> getProductCategoryList(HttpServletRequest request){
+		Map<String, Object> modelMap = new HashMap<String, Object>();	
 //		PersonInfo user = new PersonInfo();
 //		user.setUserId(1L);
 //		user.setName("杨浩");
 //		request.getSession().setAttribute("user", user);
 //		user = (PersonInfo) request.getSession().getAttribute("user");
-//		try {
-//			Shop shopCondition = new Shop();
-//			shopCondition.setOwner(user);
-//			int pageIndex = 0;
-//			int pageSize = 100;
-//			ShopExecution se = shopService.getShopList(shopCondition, pageIndex, pageSize);
-//			modelMap.put("shopList", se.getShopList());
+		try {
+			ProductCategory productCategoryCondition = new ProductCategory();
+			Shop shop = new Shop();
+			shop.setShopId(1L);
+			productCategoryCondition.setShop(shop);
+			int pageIndex = 0;
+			int pageSize = 100;
+			List<ProductCategory> pc = productCategoryService.getProductCategoryList(productCategoryCondition, pageIndex, pageSize);
+			modelMap.put("productCategoryList", pc);
 //			modelMap.put("user", user);
-//			modelMap.put("success", true);
-//		}catch(Exception e){
-//			modelMap.put("success", false);
-//			modelMap.put("errMsg", e.getMessage());
-//		}	
-//		
-//		return modelMap;
-//	}
+			modelMap.put("success", true);
+		}catch(Exception e){
+			modelMap.put("success", false);
+			modelMap.put("errMsg", e.getMessage());
+		}	
+		return modelMap;
+	}
 	
 	/**
 	 * 管理session相关的操作
