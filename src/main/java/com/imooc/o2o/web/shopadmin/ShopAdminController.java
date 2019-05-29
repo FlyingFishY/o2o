@@ -19,4 +19,8 @@ public class ShopAdminController {
 	public String shopManagement() {
 		return "shop/shopmanagement";
 	}
+	@RequestMapping(value="/productcategorymanagement")
+	public String productCategoryManage() {
+		return "shop/productcategorymanagement";
+	}
 }

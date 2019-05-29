@@ -29,14 +29,10 @@ import com.imooc.o2o.entity.ShopCategory;
 import com.imooc.o2o.enums.ShopStateEnum;
 import com.imooc.o2o.exceptions.ShopOperationException;
 import com.imooc.o2o.service.AreaService;
-import com.imooc.o2o.service.ProductCategoryService;
 import com.imooc.o2o.service.ShopCategoryService;
 import com.imooc.o2o.service.ShopService;
 import com.imooc.o2o.util.CodeUtil;
 import com.imooc.o2o.util.HttpServletRequestUtil;
-import com.imooc.o2o.util.ImageUtil;
-import com.imooc.o2o.util.PathUtil;
-import com.sun.xml.internal.ws.resources.ModelerMessages;
 
 @Controller
 @RequestMapping("/shopadmin")
@@ -47,35 +43,6 @@ public class ShopManagementController {
 	private ShopCategoryService shopCategoryService;
 	@Autowired
 	private AreaService areaService;
-	@Autowired
-	private ProductCategoryService productCategoryService;
-	
-//	@RequestMapping(value="/getproductcategorylist",method=RequestMethod.GET)
-//	@ResponseBody
-//	private Map<String,Object> getProductCategoryList(HttpServletRequest request){
-//		Map<String, Object> modelMap = new HashMap<String, Object>();
-//		
-//		PersonInfo user = new PersonInfo();
-//		user.setUserId(1L);
-//		user.setName("杨浩");
-//		request.getSession().setAttribute("user", user);
-//		user = (PersonInfo) request.getSession().getAttribute("user");
-//		try {
-//			Shop shopCondition = new Shop();
-//			shopCondition.setOwner(user);
-//			int pageIndex = 0;
-//			int pageSize = 100;
-//			ShopExecution se = shopService.getShopList(shopCondition, pageIndex, pageSize);
-//			modelMap.put("shopList", se.getShopList());
-//			modelMap.put("user", user);
-//			modelMap.put("success", true);
-//		}catch(Exception e){
-//			modelMap.put("success", false);
-//			modelMap.put("errMsg", e.getMessage());
-//		}	
-//		
-//		return modelMap;
-//	}
 	
 	/**
 	 * 管理session相关的操作
@@ -315,34 +282,4 @@ public class ShopManagementController {
 			return modelMap;
 		}
 	}
-	
-	/**
-	 * 把输出流类型转换为文件类型
-	 * @param ins
-	 * @param file
-	 */
-//	private static void inputStreamToFile(InputStream ins,File file) {
-//		FileOutputStream os = null;
-//		try {
-//			os = new FileOutputStream(file);
-//			int bytesRead = 0;
-//			byte[] buffer = new byte[1024];
-//			while ((bytesRead = ins.read(buffer)) != -1) {
-//				os.write(buffer, 0, bytesRead);
-//			}
-//		}catch(Exception e) {
-//			throw new RuntimeException("调用inputStreamToFile产生异常" + e.getMessage());
-//		}finally {
-//			try {
-//				if(os != null) {
-//					os.close();
-//				}
-//				if(ins != null) {
-//					ins.close();
-//				}
-//			}catch(IOException e) {
-//				throw new RuntimeException("inputStreamToFile关闭io产生异常" + e.getMessage());
-//			}
-//		}
-//	}
 }
