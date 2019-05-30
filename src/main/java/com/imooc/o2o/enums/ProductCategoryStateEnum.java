@@ -1,7 +1,7 @@
 package com.imooc.o2o.enums;
 
 public enum ProductCategoryStateEnum {
-	NULL_SHOP(-2001, "Shop信息为空"), EMPETY_LIST(-2002, "请输入商品目录信息"), DELETE_ERROR(-2003, "商品类别删除失败"), EDIT_ERROR(-2004, "商品类别编辑失败");
+	SUCCESS(1,"创建成功"),INNER_ERROR(-1001,"操作失败"),EMPTY_LIST(-1002,"添加数少于1");
 
 	private int state;
 	private String stateInfo;

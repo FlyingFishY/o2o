@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ProductCategory {
 	private Long productCategoryId;
-	private Shop shopId;
+	private Long shopId;
 	private String productCategoryName;
 	private Integer priority;
 	private Date createTime;
@@ -41,11 +41,11 @@ public class ProductCategory {
 		this.createTime = createTime;
 	}
 
-	public Shop getShopId() {
+	public Long getShopId() {
 		return shopId;
 	}
 
-	public void setShopId(Shop shopId) {
+	public void setShopId(Long shopId) {
 		this.shopId = shopId;
 	}
 
