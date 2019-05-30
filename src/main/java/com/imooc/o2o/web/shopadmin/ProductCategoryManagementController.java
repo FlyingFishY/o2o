@@ -42,9 +42,9 @@ public class ProductCategoryManagementController {
 		}
 	}
 	
-	@RequestMapping(value = "/addproductcategorylist", method = RequestMethod.POST)
+	@RequestMapping(value = "/addproductcategorys", method = RequestMethod.POST)
 	@ResponseBody
-	private Map<String,Object> addProductCategory(@RequestBody List<ProductCategory> productCategoryList, 
+	private Map<String,Object> addProductCategorys(@RequestBody List<ProductCategory> productCategoryList, 
 			HttpServletRequest request){
 		//有了@RequestBody 就能自动接收前台传过来的 List<ProductCategory> 参数
 		Map<String, Object> modelMap = new HashMap<String, Object>();
