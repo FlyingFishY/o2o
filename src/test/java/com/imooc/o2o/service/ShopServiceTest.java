@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.imooc.o2o.BaseTest;
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
@@ -48,7 +49,8 @@ public class ShopServiceTest extends BaseTest{
 		shop.setAdvice("审核中");
 		File shopImg = new File("C:/Users/yanghao/Pictures/BnS/41.png");
 		InputStream is = new FileInputStream(shopImg);
-		ShopExecution se = shopService.addShop(shop, is, shopImg.getName());
+		ImageHolder imageHolder = new ImageHolder(shopImg.getName(),is);
+		ShopExecution se = shopService.addShop(shop, imageHolder);
 		assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
 	}
 	
@@ -60,7 +62,8 @@ public class ShopServiceTest extends BaseTest{
 		shop.setShopName("修改后的店铺名称");
 		File shopImg = new File("C:/Users/yanghao/Pictures/BnS/41.png");
 		InputStream is = new FileInputStream(shopImg);
-		ShopExecution shopExecution = shopService.modifyShop(shop, is, "49.png");
+		ImageHolder imageHolder = new ImageHolder("49.png",is);
+		ShopExecution shopExecution = shopService.modifyShop(shop, imageHolder);
 		System.out.println("新的图片地址为：" + shopExecution.getShop().getShopImg());
 	}
 	

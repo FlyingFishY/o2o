@@ -8,8 +8,8 @@ public class Product {
 	private String productName;
 	private String productDesc;
 	private String imgAddr;// 缩略图地址
-	private String normalPrice;
-	private String promotionPrice;
+	private String normalPrice;//原价
+	private String promotionPrice;//促销价
 	private Integer priority;
 	private Date createTime;
 	private Date lastEditTime;

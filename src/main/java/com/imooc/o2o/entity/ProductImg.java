@@ -7,7 +7,7 @@ public class ProductImg {
 	private String imgAddr;
 	private String imgDesc;
 	private Integer priority;
-	private Date cteateTime;
+	private Date createTime;
 	private Long productId;
 
 	public Long getProductImgId() {
@@ -42,12 +42,12 @@ public class ProductImg {
 		this.priority = priority;
 	}
 
-	public Date getCteateTime() {
-		return cteateTime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCteateTime(Date cteateTime) {
-		this.cteateTime = cteateTime;
+	public void setCreateTime(Date cteateTime) {
+		this.createTime = cteateTime;
 	}
 
 	public Long getProductId() {
