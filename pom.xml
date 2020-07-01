@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
+			<version>8.0.16</version>
 			<!-- <scope>runtime</scope>视频里没有这一句，先注释掉，以观后效 -->
 		</dependency>
 		<!-- 连接池 -->
